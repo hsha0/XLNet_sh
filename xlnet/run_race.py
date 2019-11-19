@@ -247,7 +247,8 @@ def get_examples(data_dir, set_type):
     cur_dir = os.path.join(data_dir, set_type, level)
     for filename in tf.gfile.ListDirectory(cur_dir):
       cur_path = os.path.join(cur_dir, filename)
-      with tf.gfile.Open(cur_path, 'rb') as f:
+      #with tf.gfile.Open(cur_path, 'rb') as f:
+      with open(cur_path) as f:
         cur_data = json.load(f)
 
         answers = cur_data["answers"]
