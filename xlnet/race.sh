@@ -11,11 +11,11 @@ GS_PROC_DATA_DIR=${GS_ROOT}/proc_data/race
 GS_MODEL_DIR=${GS_ROOT}/experiment/race
 
 # TPU name in google cloud
-TPU_NAME=
+TPU_NAME=grpc://10.72.145.162:8470
 
 python3 run_race.py \
- --use_tpu=True \
- --tpu=${TPU_NAME} \
+  --use_tpu=True \
+  --tpu=${TPU_NAME} \
   --num_hosts=1 \
   --num_core_per_host=8 \
   --model_config_path=${GS_INIT_CKPT_DIR}/xlnet_config.json \
