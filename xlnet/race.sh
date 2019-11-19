@@ -38,4 +38,5 @@ python3 run_race.py \
   --learning_rate=2e-5 \
   --weight_decay=0 \
   --adam_epsilon=1e-6 \
+  --middle_only=True \
   $@
