@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #### local path
-RACE_DIR=content/RACE
+RACE_DIR=/content/RACE
 INIT_CKPT_DIR='xlnet_cased_L-12_H-768_A-12'
 
 #### google storage path
