@@ -18,8 +18,8 @@ python3 run_race.py \
   --tpu=${TPU_NAME} \
   --num_hosts=1 \
   --num_core_per_host=8 \
-  --model_config_path=${GS_INIT_CKPT_DIR}/xlnet_config.json \
-  --spiece_model_file=${GS_INIT_CKPT_DIR}/spiece.model \
+  --model_config_path=${INIT_CKPT_DIR}/xlnet_config.json \
+  --spiece_model_file=${INIT_CKPT_DIR}/spiece.model \
   --output_dir=${GS_PROC_DATA_DIR} \
   --init_checkpoint=${GS_INIT_CKPT_DIR}/xlnet_model.ckpt \
   --model_dir=${GS_MODEL_DIR} \
