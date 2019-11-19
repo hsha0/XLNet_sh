@@ -2,7 +2,7 @@
 
 #### local path
 RACE_DIR=content/RACE
-INIT_CKPT_DIR='xlnet_cased_L-24_H-1024_A-16'
+INIT_CKPT_DIR='xlnet_cased_L-12_H-768_A-12'
 
 #### google storage path
 GS_ROOT=gs://xlnet_sh
