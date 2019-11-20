@@ -211,7 +211,7 @@ def convert_single_example(example, tokenize_fn, all_labels):
     tokens.append(SEP_ID)
     segment_ids.append(SEG_ID_A)
 
-    tokens.extend(CLS_ID)
+    tokens.append(CLS_ID)
     segment_ids.append(SEG_ID_CLS)
 
     input_ids = tokens
