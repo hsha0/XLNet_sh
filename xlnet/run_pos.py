@@ -445,6 +445,9 @@ def main(_):
     all_labels.append('##')
     all_labels.append('PAD')
 
+    ### only for testing
+    all_labels.append('SYM')
+
     #### Validate flags
     if FLAGS.save_steps is not None:
         FLAGS.iterations = min(FLAGS.iterations, FLAGS.save_steps)
