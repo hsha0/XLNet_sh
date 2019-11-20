@@ -246,7 +246,7 @@ def get_examples(data_dir, set_type):
 
     cur_dir = os.path.join(data_dir, set_type, level)
     for filename in tf.gfile.ListDirectory(cur_dir):
-      if filename.startwith('.'): continue
+      if filename.startswith('.'): continue
       cur_path = os.path.join(cur_dir, filename)
       print(cur_path)
       with tf.gfile.Open(cur_path) as f:
