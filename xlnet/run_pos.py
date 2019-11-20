@@ -281,7 +281,7 @@ def create_examples(data_dir, mode):
 def input_fn_builder(features, is_training, drop_remainder):
     """Creates an `input_fn` closure to be passed to Estimator."""
     seq_length = FLAGS.max_seq_length
-    
+
     all_input_ids = []
     all_input_mask = []
     all_segment_ids = []
@@ -363,8 +363,8 @@ def create_model(FLAGS, features, is_training, num_labels):
     return loss, per_example_loss, logits
 
 
-def get_model_fn():
-    def model_fn(features, num_labels, mode):
+def get_model_fn(num_labels):
+    def model_fn(features, labels, mode, params):
         is_training = (mode == tf.estimator.ModeKeys.TRAIN)
 
         total_loss, per_example_loss, logits = create_model(FLAGS, features, is_training, num_labels)
@@ -437,6 +437,7 @@ def get_model_fn():
 
 def main(_):
     tf.logging.set_verbosity(tf.logging.INFO)
+    all_labels = get_labels(FLAGS.data_dir, FLAGS.train_file)
 
     #### Validate flags
     if FLAGS.save_steps is not None:
@@ -460,7 +461,7 @@ def main(_):
 
     run_config = model_utils.configure_tpu(FLAGS)
 
-    model_fn = get_model_fn()
+    model_fn = get_model_fn(len(all_labels))
 
     spm_basename = os.path.basename(FLAGS.spiece_model_file)
 
@@ -478,7 +479,7 @@ def main(_):
             model_fn=model_fn,
             config=run_config)
 
-    all_labels = get_labels(FLAGS.data_dir, FLAGS.train_file)
+
 
     if FLAGS.do_train:
 
