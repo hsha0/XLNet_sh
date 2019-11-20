@@ -88,6 +88,8 @@ flags.DEFINE_integer("iterations", default=1000,
 flags.DEFINE_bool("do_train", default=False, help="whether to do training")
 flags.DEFINE_integer("train_steps", default=12000,
       help="Number of training steps")
+flags.DEFINE_integer("num_train_epochs", default=3,
+                     help='Number of training epochs')
 flags.DEFINE_integer("warmup_steps", default=0, help="number of warmup steps")
 flags.DEFINE_float("learning_rate", default=2e-5, help="initial learning rate")
 flags.DEFINE_float("lr_layer_decay_rate", 1.0,
@@ -490,18 +492,21 @@ def main(_):
         spm_basename, FLAGS.max_seq_length)
     train_file = os.path.join(FLAGS.output_dir, train_file_base)
 
-    if not tf.gfile.Exists(train_file) or FLAGS.overwrite_data:
-      train_examples = get_examples(FLAGS.data_dir, "train")
-      random.shuffle(train_examples)
-      file_based_convert_examples_to_features(
+    #if not tf.gfile.Exists(train_file) or FLAGS.overwrite_data:
+    train_examples = get_examples(FLAGS.data_dir, "train")
+    random.shuffle(train_examples)
+    file_based_convert_examples_to_features(
           train_examples, tokenize_fn, train_file)
+
+    num_train_steps = int(
+        len(train_examples) / FLAGS.train_batch_size * FLAGS.num_train_epochs)
 
     train_input_fn = file_based_input_fn_builder(
         input_file=train_file,
         seq_length=FLAGS.max_seq_length,
         is_training=True,
         drop_remainder=True)
-    estimator.train(input_fn=train_input_fn, max_steps=FLAGS.train_steps)
+    estimator.train(input_fn=train_input_fn, max_steps=num_train_steps)
 
   if FLAGS.do_eval:
     eval_examples = get_examples(FLAGS.data_dir, FLAGS.eval_split)
