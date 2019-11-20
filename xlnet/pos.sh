@@ -24,11 +24,11 @@ python3 run_pos.py \
   --init_checkpoint=${GS_INIT_CKPT_DIR}/xlnet_model.ckpt \
   --model_dir=${GS_MODEL_DIR} \
   --data_dir=${POS_DIR} \
-  --train_file=heldback \
-  --test_file=test \
+  --train_file=tagged.large.refined \
+  --test_file=heldback \
   --max_seq_length=512 \
   --uncased=False \
-  --do_train=False \
+  --do_train=True \
   --train_batch_size=32 \
   --do_eval=True \
   --eval_batch_size=32 \
