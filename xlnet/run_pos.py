@@ -212,7 +212,7 @@ def convert_single_example(example, tokenize_fn, all_labels):
     segment_ids.append(SEG_ID_A)
 
     tokens.extend(CLS_ID)
-    segment_ids.extend(SEG_ID_CLS)
+    segment_ids.append(SEG_ID_CLS)
 
     input_ids = tokens
     if len(input_ids) < FLAGS.max_seq_length:
@@ -353,7 +353,7 @@ def create_model(FLAGS, features, is_training, num_labels):
 
         log_prob = tf.nn.log_softmax(logits, axis=-1)
         one_hot_labels = tf.one_hot(label_list, depth=num_labels, dtype=tf.float32)
-        per_example_loss = -tf.reduce_sum(one_hot_labels * log_probs, axis=-1)
+        per_example_loss = -tf.reduce_sum(one_hot_labels * log_prob, axis=-1)
         input_mask *= -1
         input_mask += 1
         per_example_loss *= input_mask
