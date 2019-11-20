@@ -11,9 +11,9 @@ GS_PROC_DATA_DIR=${GS_ROOT}/proc_data/pos
 GS_MODEL_DIR=${GS_ROOT}/experiment/pos
 
 # TPU name in google cloud
-TPU_NAME=grpc://10.72.145.162:8470
+TPU_NAME=grpc://10.79.109.106:8470
 
-python3 run_race.py \
+python3 run_pos.py \
   --use_tpu=True \
   --tpu=${TPU_NAME} \
   --num_hosts=1 \
