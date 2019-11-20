@@ -510,9 +510,11 @@ def main(_):
 
     if FLAGS.do_eval:
         eval_examples = create_examples(FLAGS.data_dir, FLAGS.test_file)
+
         while len(eval_examples) % FLAGS.eval_batch_size != 0:
             eval_examples.append(PaddingInputExample())
         assert len(eval_examples) % FLAGS.eval_batch_size == 0
+
         eval_steps = int(len(eval_examples) // FLAGS.eval_batch_size)
         eval_features = conver_examples_to_features(eval_examples, all_labels, tokenize_fn)
 
