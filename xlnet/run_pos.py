@@ -322,7 +322,7 @@ def input_fn_builder(features, is_training, drop_remainder):
 
         if is_training:
             d = d.repeat()
-            d = d.shuffle(buffer_size=100, seed=FLAGS.seed)
+            d = d.shuffle(buffer_size=100)
 
         d = d.batch(batch_size=batch_size, drop_remainder=drop_remainder)
         return d
