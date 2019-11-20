@@ -247,7 +247,7 @@ def get_labels(data_dir, mode):
             label = [x[-1] for x in words]
             for x in label:
                 labels.add(x)
-    return labels
+    return list(labels)
 
 
 def conver_examples_to_features(examples, all_labels, tokenize_fn):
@@ -438,6 +438,8 @@ def get_model_fn(num_labels):
 def main(_):
     tf.logging.set_verbosity(tf.logging.INFO)
     all_labels = get_labels(FLAGS.data_dir, FLAGS.train_file)
+    all_labels.append('##')
+    all_labels.append('PAD')
 
     #### Validate flags
     if FLAGS.save_steps is not None:
