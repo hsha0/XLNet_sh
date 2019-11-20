@@ -299,8 +299,6 @@ def input_fn_builder(features, is_training, drop_remainder):
         all_label_list.append(feature.label_list)
         all_is_real_example.append(feature.is_real_example)
 
-    tf.cast(all_input_mask, dtype=tf.float32)
-
     def input_fn(params):
         """The actual input function"""
         batch_size = params["batch_size"]
@@ -313,7 +311,7 @@ def input_fn_builder(features, is_training, drop_remainder):
                     all_input_ids, shape=[num_examples, seq_length]
                 ),
             "input_mask":
-                tf.constant(all_input_mask, shape=[num_examples, seq_length]),
+                tf.constant(all_input_mask, shape=[num_examples, seq_length], dtype=tf.float32),
             "segment_ids":
                 tf.constant(all_segment_ids, shape=[num_examples, seq_length]),
             "label_list":
