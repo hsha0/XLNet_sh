@@ -27,7 +27,7 @@ python3 run_race.py \
   --max_seq_length=512 \
   --max_qa_length=128 \
   --uncased=False \
-  --do_train=False\
+  --do_train=True \
   --train_batch_size=8 \
   --do_eval=True \
   --eval_batch_size=32 \
@@ -35,7 +35,7 @@ python3 run_race.py \
   --save_steps=1000 \
   --iterations=1000 \
   --warmup_steps=1000 \
-  --learning_rate=2e-5 \
+  --learning_rate=5e-5 \
   --weight_decay=0 \
   --adam_epsilon=1e-6 \
   --middle_only=True \
