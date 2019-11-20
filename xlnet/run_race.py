@@ -500,6 +500,7 @@ def main(_):
 
     num_train_steps = int(
         len(train_examples) / FLAGS.train_batch_size * FLAGS.num_train_epochs)
+    print('Train steps:', num_train_steps)
 
     train_input_fn = file_based_input_fn_builder(
         input_file=train_file,
