@@ -278,7 +278,7 @@ def create_examples(data_dir, mode):
     return _read_pos_examples(data_dir)
 
 
-def input_fn_builder(features, seq_length=FLAGS.max_seq_length, is_training, drop_remainder):
+def input_fn_builder(features, is_training, drop_remainder, seq_length=FLAGS.max_seq_length):
     """Creates an `input_fn` closure to be passed to Estimator."""
 
     all_input_ids = []
