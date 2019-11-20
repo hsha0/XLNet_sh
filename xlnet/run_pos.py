@@ -405,11 +405,11 @@ def get_model_fn():
                     loss=total_loss,
                     eval_metrics=(metric_fn, metric_args),
                     scaffold_fn=scaffold_fn)
-                else:
+            else:
                 eval_spec = tf.estimator.EstimatorSpec(
-                    mode=mode,
-                    loss=total_loss,
-                    eval_metric_ops=metric_fn(*metric_args))
+                        mode=mode,
+                        loss=total_loss,
+                        eval_metric_ops=metric_fn(*metric_args))
             return eval_spec
 
         #### Configuring the optimizer
