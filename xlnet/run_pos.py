@@ -211,12 +211,12 @@ def convert_single_example(example, tokenize_fn, all_labels):
     tokens.append(SEP_ID)
     segment_ids.append(SEG_ID_A)
     input_mask.append(1)
-    label_list.append('PAD')
+    label_list.append(all_labels.index('PAD'))
 
     tokens.append(CLS_ID)
     segment_ids.append(SEG_ID_CLS)
     input_mask.append(1)
-    label_list.append('PAD')
+    label_list.append(all_labels.index('PAD'))
 
     input_ids = tokens
     if len(input_ids) < FLAGS.max_seq_length:
