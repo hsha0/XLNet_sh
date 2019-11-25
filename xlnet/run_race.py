@@ -98,7 +98,7 @@ flags.DEFINE_float("lr_layer_decay_rate", 1.0,
 flags.DEFINE_float("min_lr_ratio", default=0.0,
       help="min lr ratio for cos decay.")
 flags.DEFINE_float("clip", default=1.0, help="Gradient clipping")
-flags.DEFINE_integer("max_save", default=0,
+flags.DEFINE_integer("max_save", default=1,
       help="Max number of checkpoints to save. Use 0 to save all.")
 flags.DEFINE_integer("save_steps", default=None,
       help="Save the model for every save_steps. "
