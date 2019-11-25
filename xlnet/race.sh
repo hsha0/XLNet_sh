@@ -11,7 +11,7 @@ GS_PROC_DATA_DIR=${GS_ROOT}/proc_data/race
 GS_MODEL_DIR=${GS_ROOT}/experiment/race_epochs2_lr2e-05
 
 # TPU name in google cloud
-TPU_NAME=grpc://10.50.7.130:8470
+TPU_NAME=grpc://10.1.26.106:8470
 
 python3 run_race.py \
   --use_tpu=True \
