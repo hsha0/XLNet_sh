@@ -8,7 +8,7 @@ INIT_CKPT_DIR='xlnet_cased_L-24_H-1024_A-16'
 GS_ROOT=gs://xlnet_sh
 GS_INIT_CKPT_DIR=${GS_ROOT}/${INIT_CKPT_DIR}
 GS_PROC_DATA_DIR=${GS_ROOT}/proc_data/pos
-GS_MODEL_DIR=${GS_ROOT}/experiment/pos
+GS_MODEL_DIR=${GS_ROOT}/experiment/pos/pos
 
 # TPU name in google cloud
 TPU_NAME=grpc://10.14.32.90:8470
