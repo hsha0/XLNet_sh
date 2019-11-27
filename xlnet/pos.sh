@@ -37,10 +37,10 @@ do
       --save_steps=1000 \
       --iterations=1000 \
       --warmup_steps=1000 \
-      --learning_rate=5e-5 \
+      --learning_rate=2e-5 \
       --weight_decay=0 \
       --adam_epsilon=1e-6 \
       --middle_only=True \
-      --num_train_epochs=3 \
+      --num_train_epochs=2 \
       $@
 done
