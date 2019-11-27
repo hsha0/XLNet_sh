@@ -11,7 +11,7 @@ GS_PROC_DATA_DIR=${GS_ROOT}/proc_data/pos
 GS_MODEL_DIR=${GS_ROOT}/experiment/pos/pos
 
 # TPU name in google cloud
-TPU_NAME=grpc://10.14.32.90:8470
+TPU_NAME=grpc://10.92.94.210:8470
 
 for run in $(seq 0 9)
 do
