@@ -24,7 +24,7 @@ do
       --spiece_model_file=${INIT_CKPT_DIR}/spiece.model \
       --output_dir=${GS_PROC_DATA_DIR} \
       --init_checkpoint=${GS_INIT_CKPT_DIR}/xlnet_model.ckpt \
-      --model_dir=${GS_MODEL_DIR} \
+      --model_dir=${GS_MODEL_DIR}_$run \
       --data_dir=${POS_DIR} \
       --train_file=tagged.large.refined \
       --test_file=heldback \
